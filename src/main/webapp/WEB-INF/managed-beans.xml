@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                       http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ 
+
+    <managed-bean>
+        <managed-bean-name>user</managed-bean-name>
+        <managed-bean-class>de.fiz.karlsruhe.beans.EscidocUser</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>escidocItem</managed-bean-name>
+        <managed-bean-class>de.fiz.karlsruhe.beans.EscidocItem</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name> selectOneBean </managed-bean-name>
+        <managed-bean-class> de.fiz.karlsruhe.beans.SelectOneMenuBean </managed-bean-class>
+        <managed-bean-scope> request </managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome> selectOneMenu </from-outcome>
+            <to-view-id> /selectOneMenuResult.jsp </to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

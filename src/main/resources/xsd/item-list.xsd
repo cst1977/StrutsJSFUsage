@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:item="http://www.escidoc.de/schemas/item/0.9" 
+           targetNamespace="http://www.escidoc.de/schemas/itemlist/0.9" 
+           xmlns:xlink="http://www.w3.org/1999/xlink" 
+           elementFormDefault="qualified">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+	<xs:import namespace="http://www.escidoc.de/schemas/item/0.9" schemaLocation="item.xsd"/>
+	<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlink.xsd"/>
+	<xs:element name="item-list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="item:item" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute ref="xlink:title" use="required"/>
+			<xs:attribute ref="xlink:href" use="prohibited"/>
+			<xs:attribute ref="xlink:type" use="required"/>
+			<xs:attribute ref="xml:base" use="required"/>
+			<xs:attribute name="number-of-records" use="optional"/>
+			<xs:attribute name="offset" use="optional"/>
+			<xs:attribute name="limit" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

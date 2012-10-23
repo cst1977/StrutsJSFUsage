@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="forwardForm" type="de.fiz.karlsruhe.form.UserForm"/>
+        <form-bean name="logonForm" type="de.fiz.karlsruhe.form.LogonForm"/>
+        <form-bean name="selectForm" type="de.fiz.karlsruhe.form.EscidocForm"/>
+        <form-bean name="mailForm" type="de.fiz.karlsruhe.form.MailForm"/>
+        <form-bean name="sendMailForm" type="de.fiz.karlsruhe.form.SendMailForm"/>
+    </form-beans>
+    
+    <action-mappings>
+        <action path="/Send"
+                type="de.fiz.karlsruhe.action.SendMailAction"
+                name="sendMailForm"
+                scope="request">
+            <forward name="success" path="/send.faces"/>
+        </action>
+        <action path="/Mail"
+                type="de.fiz.karlsruhe.action.MailAction"
+                name="mailForm"
+                scope="request">
+            <forward name="success" path="/mailsend.faces"/>
+        </action>
+        <action path="/Select"
+                type="de.fiz.karlsruhe.action.EscidocAction"
+                name="selectForm"
+                scope="request">
+            <forward name="success" path="/selectedItem.faces"/>
+        </action>
+        <action path="/Action" 
+                type="de.fiz.karlsruhe.action.UserAction" 
+                name="forwardForm"
+                validate="true"
+                scope="request">
+             <forward name="success" path="/logon.faces"/>
+        </action>
+        <action path="/Logon" 
+                type="de.fiz.karlsruhe.action.LogonAction"
+                name="logonForm"
+                validate="true" 
+                scope="request" >
+            <forward name="success" path="/welcome.faces"/>
+        </action>
+    </action-mappings>
+    
+    <controller>
+        <set-property property="processorClass" value="org.apache.struts.faces.application.FacesRequestProcessor"/>
+    </controller>
+    
+    <message-resources parameter="de.fiz.karlsruhe.properties.Common" />
+</struts-config>

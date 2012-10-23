@@ -1,0 +1,50 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package de.fiz.karlsruhe.form;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import org.apache.struts.action.ActionForm;
+
+public class SelectForm extends ActionForm {
+    
+    private String selectedItem;
+    private Collection escidocItemLabels;
+    private Collection escidocItemValues;
+
+    public String getSelectedItem() {
+        return selectedItem;
+    }
+
+    public void setSelectedItem(String selectedItem) {
+        this.selectedItem = selectedItem;
+    }
+
+    public Collection getEscidocItemLabels() {
+        // define some dummy labels
+        escidocItemLabels = new ArrayList();
+        escidocItemLabels.add("Marie");
+        escidocItemLabels.add("Klaus");
+        escidocItemLabels.add("Peter");
+        return escidocItemLabels;
+    }
+
+    public void setEscidocItemLabels(Collection escidocItemLabels) {
+        this.escidocItemLabels = escidocItemLabels;
+    }
+
+    public void setEscidocItemValues(Collection escidocItemValues) {
+        this.escidocItemValues = escidocItemValues;
+    }
+
+    public Collection getEscidocItemValues() {
+    // define some dummy names
+        escidocItemValues = new ArrayList();
+        escidocItemValues.add("1");
+        escidocItemValues.add("2");
+        escidocItemValues.add("3");
+        return escidocItemValues;
+    }
+}
