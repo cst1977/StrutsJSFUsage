@@ -12,6 +12,7 @@ public class LogonForm extends ActionForm {
     private Logger logger = Logger.getLogger(LogonForm.class);
     private String username;
     private String password;
+    private String userHandle;
 
     public String getUsername() {
         return username;
@@ -19,6 +20,10 @@ public class LogonForm extends ActionForm {
 
     public String getPassword() {
         return password;
+    }
+    
+    public String getUserHandle() {
+        return userHandle;
     }
 
     public void setUsername(String username) {
@@ -28,21 +33,8 @@ public class LogonForm extends ActionForm {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    @Override
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-
-        ActionErrors errors = new ActionErrors();
-
-        if (getUsername() == null || ("".equals(getUsername()))) {
-            errors.add("common.name.err", new ActionMessage("error.common.name.required"));
-        }
-
-        return errors;
-    }
-
-    public void reset(ActionMapping mapping, HttpServletRequest request) {
-        username = "";
-        password = "";
+    
+    public void setUserHandle(String userHandle) {
+        this.userHandle = userHandle;
     }
 }

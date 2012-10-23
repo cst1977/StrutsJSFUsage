@@ -23,7 +23,7 @@
                 <div style="float:left;padding-right:8px;">
                     <bean:message key="label.common.host" /> : 
                 </div>
-                <html:text property="host" size="20" maxlength="20"/>
+                <html:text property="host" size="20" maxlength="20"/><br/>
             </div>
 
             <div style="padding:16px">

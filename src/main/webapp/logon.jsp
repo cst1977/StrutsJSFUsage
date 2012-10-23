@@ -1,23 +1,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
-<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
-<%@ taglib prefix="s" uri="http://struts.apache.org/tags-faces" %>
+<%@ taglib prefix="c"     uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="cf"    uri="http://fiz.de/karlsruhe/custom/functions" %>
+<%@ taglib prefix="html"  uri="http://struts.apache.org/tags-html" %>
+<%@ taglib prefix="bean"  uri="http://struts.apache.org/tags-bean" %>
+<%@ taglib prefix="logic" uri="http://struts.apache.org/tags-logic" %>
+<%@ taglib prefix="s"     uri="/WEB-INF/struts-tags.tld" %>
 
-<f:view>
-    <s:html locale="true">
-        <head>
-            <title>Logon to eSciDoc-Core</title>
-        </head>
-        <body>
-            <p />
-            <s:form id="logon" action="/Logon">
-                <h2>Please login to eSciDoc-Core</h2>
-                <h:outputLabel for="username" value="Username:" />
-                <h:inputText id="username" value="#{logonForm.username}" required="true" size="15" /> <p/>
-                <h:outputLabel for="password" value="Password:" />
-                <h:inputSecret id="password" value="#{logonForm.password}" required="true" size="15" /> <p />
-                <h:commandButton id="sumit" type="SUBMIT" value="Logon" />
-            </s:form>
-        </body>
-    </s:html>
-</f:view>
+<html>
+    <head>
+    </head>
+    <body>
+        <html:form action="/UserHandle">
+            <h1>Logged In</h1>
+            <div style="padding:16px">
+                <div style="float:left;padding-right:8px;">
+                    <html:text property="userHandle" size="50" value='${userHandleForm.userHandle}'/><br/>
+                </div>
+            </div>
+            <div style="padding:16px">
+                <div style="float:left;padding-right:8px;">
+                    <html:submit><bean:message key="label.common.button.submit" /></html:submit>
+                </div>
+            </div>
+        </html:form>
+    </body>
+</html>

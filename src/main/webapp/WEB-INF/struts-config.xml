@@ -12,6 +12,7 @@
         <form-bean name="selectForm" type="de.fiz.karlsruhe.form.EscidocForm"/>
         <form-bean name="mailForm" type="de.fiz.karlsruhe.form.MailForm"/>
         <form-bean name="sendMailForm" type="de.fiz.karlsruhe.form.SendMailForm"/>
+        <form-bean name="userHandleForm" type="de.fiz.karlsruhe.form.UserHandleForm"/>
     </form-beans>
     
     <action-mappings>
@@ -38,14 +39,15 @@
                 name="forwardForm"
                 validate="true"
                 scope="request">
-             <forward name="success" path="/logon.faces"/>
+             <forward name="success" redirect="true" path="http://localhost:8080/aa/login?target=http://localhost:8080/StrutsJSFUsage/logon.faces"/>
+             <!--<forward name="success" path="/logon.faces"/>-->
         </action>
-        <action path="/Logon" 
-                type="de.fiz.karlsruhe.action.LogonAction"
-                name="logonForm"
-                validate="true" 
-                scope="request" >
-            <forward name="success" path="/welcome.faces"/>
+        <action path="/UserHandle" 
+                type="de.fiz.karlsruhe.action.UserHandleAction"
+                name="userHandleForm"
+                validate="true"
+                scope="request">
+             <forward name="success" path="/userHandle.faces"/>
         </action>
     </action-mappings>
     
